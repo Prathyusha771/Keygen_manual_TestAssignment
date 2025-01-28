@@ -9,30 +9,10 @@
 
 This document provides an overview of the basic functionality, key features, and terminology used in Keygen. It serves as a guide for developers and teams who wish to leverage Keygen for license management, machine tracking, and more.
 
----
-
-## **Table of Contents**  
-1. [What is Keygen?](#what-is-keygen)  
-2. [Core Concepts and Terminology](#core-concepts-and-terminology)  
-   - [Licenses](#licenses)  
-   - [Machines](#machines)  
-   - [Policies](#policies)  
-   - [Users](#users)  
-3. [Keygen Features](#keygen-features)  
-4. [Basic Operations](#basic-operations)  
-   - [Managing Licenses](#managing-licenses)  
-   - [Managing Machines](#managing-machines)  
-   - [Managing Users](#managing-users)  
-5. [Endpoints and Documentation](#endpoints-and-documentation)  
-
----
 
 ## **What is Keygen?**  
 Keygen is a software licensing and distribution platform designed to help developers manage software activations, entitlements, and machine tracking. It provides APIs to securely issue, validate, and manage licenses while tracking usage across devices.
 
----
-
-## **Core Concepts and Terminology**  
 
 ### **Licenses**  
 - **Definition:** Licenses represent entitlements for users or customers to access a product or service.  
