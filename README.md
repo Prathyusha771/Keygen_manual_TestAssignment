@@ -1,4 +1,8 @@
+
+
 # Keygen_manual_TestAssignment
+
+1. Have Attached UI and API Test cases Excel sheet.
 
 # **Keygen: Basic Usage and Terminology**  
 
