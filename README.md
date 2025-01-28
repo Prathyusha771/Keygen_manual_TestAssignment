@@ -3,6 +3,7 @@
 # Keygen_manual_TestAssignment
 
 1. Have Attached UI and API Test cases Excel sheet.
+2. Have attached API basic collection for license management flow
 
 # **Keygen: Basic Usage and Terminology**  
 
