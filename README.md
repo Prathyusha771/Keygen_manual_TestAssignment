@@ -72,25 +72,3 @@ Keygen is a software licensing and distribution platform designed to help develo
 2. **View User Details:** Review associated licenses, machines, and metadata.  
 3. **Edit User:** Update user information such as email or role.  
 4. **Delete User:** Remove a user and their associations.  
-
----
-
-## **Endpoints and Documentation**  
-
-### **Licenses API**  
-- **Create a License:** `POST /licenses`  
-- **Retrieve a License:** `GET /licenses/:id`  
-- **Update a License:** `PATCH /licenses/:id`  
-- **Delete a License:** `DELETE /licenses/:id`  
-
-### **Machines API**  
-- **Create a Machine:** `POST /machines`  
-- **Retrieve a Machine:** `GET /machines/:id`  
-- **Update a Machine:** `PATCH /machines/:id`  
-- **Delete a Machine:** `DELETE /machines/:id`  
-
-### **Users API**  
-- **Create a User:** `POST /users`  
-- **Retrieve a User:** `GET /users/:id`  
-- **Update a User:** `PATCH /users/:id`  
-- **Delete a User:** `DELETE /users/:id`  
