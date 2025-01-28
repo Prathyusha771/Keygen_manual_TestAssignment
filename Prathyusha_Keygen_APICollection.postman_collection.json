@@ -1,0 +1,1285 @@
+{
+	"info": {
+		"_postman_id": "50dd0fa4-68b2-4f43-b2d4-ecce1df6cfd4",
+		"name": "Prathyusha_Keygen_APICollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33362092",
+		"_collection_link": "https://galactic-equinox-691495.postman.co/workspace/dummy~d76f93fc-fcfa-42a9-9637-e821db5270fd/collection/33362092-50dd0fa4-68b2-4f43-b2d4-ecce1df6cfd4?action=share&source=collection_link&creator=33362092"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "create a product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body to JSON",
+									"let responseData = pm.response.json();",
+									"",
+									"// Check if the response contains the 'id' field",
+									"if (responseData.data && responseData.data.id) {",
+									"    // Set the 'id' as a collection variable",
+									"    pm.collectionVariables.set(\"productId\", responseData.data.id);",
+									"    console.log(\"Collection variable 'productId' set to:\", responseData.data.id);",
+									"} else {",
+									"    console.log(\"Response does not contain 'id'.\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Product Name is : Hotstar\",\n            \"url\": \"https://hotstar.com\",\n            \"platforms\": [\"iOS\", \"Android\",\"Windows\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/products",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Example product 1\",\n            \"url\": \"https://producturl.com\",\n            \"platforms\": [\"iOS\", \"Android\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/products/{{productId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"products",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Update Product Name is : ProductName\",\n            \"url\": \"https://google.co.in\",\n            \"platforms\": [\"iOS\", \"Android\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/products/{{productId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"products",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/prathyusharoyal7771/products/{{productId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"prathyusharoyal7771",
+								"products",
+								"{{productId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/products",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Policy",
+			"item": [
+				{
+					"name": "create a policy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body to JSON",
+									"let responseData = pm.response.json();",
+									"",
+									"// Check if the response contains the 'id' field",
+									"if (responseData.data && responseData.data.id) {",
+									"    // Set the 'id' as a collection variable",
+									"    pm.collectionVariables.set(\"PolicyId\", responseData.data.id);",
+									"    console.log(\"Collection variable 'PolicyId' set to:\", responseData.data.id);",
+									"} else {",
+									"    console.log(\"Response does not contain 'id'.\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"policies\",\n          \"attributes\": {\n            \"name\": \"Basic - Free Plan\",\n             \"maxMachines\": 2,\n            \"floating\": true\n          },\n          \"relationships\": {\n            \"product\": {\n              \"data\": { \"type\": \"product\", \"id\": \"{{productId}}\" }\n            }\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/policies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a policy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Example product 1\",\n            \"url\": \"https://producturl.com\",\n            \"platforms\": [\"iOS\", \"Android\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/policies/{{PolicyId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"policies",
+								"{{PolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"policies\",\n        \"attributes\": {\n            \"maxMachines\": 4,\n            \"floating\": true\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/policies/{{PolicyId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"policies",
+								"{{PolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a policy",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Example product 1\",\n            \"url\": \"https://producturl.com\",\n            \"platforms\": [\"iOS\", \"Android\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/policies/{{PolicyId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"policies",
+								"{{PolicyId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All policies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Example product 1\",\n            \"url\": \"https://producturl.com\",\n            \"platforms\": [\"iOS\", \"Android\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/policies",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"policies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "create a user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body to JSON",
+									"let responseData = pm.response.json();",
+									"",
+									"// Check if the response contains the 'id' field",
+									"if (responseData.data && responseData.data.id) {",
+									"    // Set the 'id' as a collection variable",
+									"    pm.collectionVariables.set(\"UserId\", responseData.data.id);",
+									"    console.log(\"Collection variable 'UserId' set to:\", responseData.data.id);",
+									"} else {",
+									"    console.log(\"Response does not contain 'id'.\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"users\",\n        \"attributes\": {\n            \"firstName\": \"Test {{randomword}}\",\n            \"lastName\": \"User Name\",\n            \"email\": \"User{{randomword}}@keygen.sh\",\n            \"password\": \"test12345\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/users",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/users/{{UserId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"users",
+								"{{UserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"users\",\n          \"attributes\": {\n            \"metadata\": {\n              \"nickname\": \"Testttttttt\"\n            }\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/users/{{UserId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"users",
+								"{{UserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"products\",\n          \"attributes\": {\n            \"name\": \"Example product 1\",\n            \"url\": \"https://producturl.com\",\n            \"platforms\": [\"iOS\", \"Android\"]\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/users/{{UserId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"users",
+								"{{UserId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/users",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Licenses",
+			"item": [
+				{
+					"name": "create Licenses",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body to JSON",
+									"let responseData = pm.response.json();",
+									"",
+									"// Check if the response contains the 'id' field",
+									"if (responseData.data && responseData.data.id) {",
+									"    // Set the 'id' as a collection variable",
+									"    pm.collectionVariables.set(\"LicenseId\", responseData.data.id);",
+									"    console.log(\"Collection variable 'LicenseId' set to:\", responseData.data.id);",
+									"} else {",
+									"    console.log(\"Response does not contain 'id'.\");",
+									"}",
+									"",
+									"if (responseData.data.attributes && responseData.data.attributes.key) {",
+									"        pm.collectionVariables.set(\"LicenseKey\", responseData.data.attributes.key);",
+									"        console.log(\"Collection variable 'LicenseKey' set to:\", responseData.data.attributes.key);",
+									"    } else {",
+									"        console.log(\"Response does not contain 'LicenseKey'.\");",
+									"    }"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"licenses\",\n          \"relationships\": {\n            \"policy\": {\n              \"data\": { \"type\": \"policies\", \"id\": \"{{PolicyId}}\" }\n            },\n            \"owner\": {\n              \"data\": { \"type\": \"users\", \"id\": \"{{UserId}}\" }\n            }\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/licenses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"licenses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a license details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/licenses/{{LicenseId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"licenses",
+								"{{LicenseId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  License details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"licenses\",\n          \"attributes\": {\n            \"expiry\": \"2025-05-01T00:00:00.000Z\"\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/licenses/{{LicenseId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"licenses",
+								"{{LicenseId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete license",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/licenses/{{LicenseId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"licenses",
+								"{{LicenseId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All licenses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/nareshduck/licenses",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"nareshduck",
+								"licenses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Machines",
+			"item": [
+				{
+					"name": "create/activate Machines",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse the response body to JSON",
+									"let responseData = pm.response.json();",
+									"",
+									"// Check if the response contains the 'id' field",
+									"if (responseData.data && responseData.data.id) {",
+									"    // Set the 'id' as a collection variable",
+									"    pm.collectionVariables.set(\"MachineId\", responseData.data.id);",
+									"    console.log(\"Collection variable 'MachineId' set to:\", responseData.data.id);",
+									"} else {",
+									"    console.log(\"Response does not contain 'id'.\");",
+									"}",
+									"",
+									"if (responseData.data.attributes && responseData.data.attributes.key) {",
+									"        pm.collectionVariables.set(\"LicenseKey\", responseData.data.attributes.key);",
+									"        console.log(\"Collection variable 'LicenseKey' set to:\", responseData.data.attributes.key);",
+									"    } else {",
+									"        console.log(\"Response does not contain 'LicenseKey'.\");",
+									"    }"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"machines\",\n          \"attributes\": {\n            \"fingerprint\": \"4d:Eq:UV:D3:XZ:tL:WN:Bz:mA:Eg:E6:Mk:YX:DK:NE\",\n            \"platform\": \"macOS\",\n            \"name\": \"Android\"\n          },\n          \"relationships\": {\n            \"license\": {\n              \"data\": {\n                \"type\": \"licenses\",\n                \"id\": \"{{LicenseId}}\"\n              }\n            }\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/machines",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"machines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve a Machines details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/machines/{{MachineId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"machines",
+								"{{MachineId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Machines details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"data\": {\n          \"type\": \"machines\",\n          \"attributes\": {\n            \"ip\": \"192.168.1.2\"\n          }\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/machines/{{MachineId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"machines",
+								"{{MachineId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Machines",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/machines/{{MachineId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"machines",
+								"{{MachineId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Machines",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.keygen.sh/v1/accounts/prathyusharoyal7771/machines",
+							"protocol": "https",
+							"host": [
+								"api",
+								"keygen",
+								"sh"
+							],
+							"path": [
+								"v1",
+								"accounts",
+								"prathyusharoyal7771",
+								"machines"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "productId",
+			"value": ""
+		},
+		{
+			"key": "PolicyId",
+			"value": ""
+		},
+		{
+			"key": "UserId",
+			"value": ""
+		},
+		{
+			"key": "LicenseId",
+			"value": ""
+		},
+		{
+			"key": "LicenseKey",
+			"value": ""
+		},
+		{
+			"key": "MachineId",
+			"value": ""
+		}
+	]
+}
